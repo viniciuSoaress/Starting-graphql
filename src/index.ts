@@ -3,20 +3,31 @@ import { gql, ApolloServer } from 'apollo-server'
 
 
 const typeDefs = gql`
-    type Query{
-      tecs: [String!]!
-      name: String!
-    }
-  `
+
+  type User {
+    name: String!,
+    age: Int!
+  }
+
+  type Game {
+    name: String!,
+    price: Float!
+  }
+
+  type Query{
+    users: [User!]!,
+    game: Game!
+  }
+`
 
 const resolvers = {
   Query: {
-    tecs(){
-      return ['React.js', 'Express.js', 'Prisma ORM']
+    users(){
+      return [{name: 'Vinicius', age: 23}]
     },
-     name(){
-      return 'Vinicius'
-     }
+    game(){
+      return {name: 'call', price: 139.04}
+    }
   }
 }
 
