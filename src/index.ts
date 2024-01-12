@@ -16,7 +16,8 @@ const typeDefs = gql`
 
   type Query{
     users: [User!]!,
-    game: Game!
+    game: Game!,
+    user(name: String): User
   }
 `
 
@@ -26,7 +27,12 @@ const resolvers = {
       return [{name: 'Vinicius', age: 23}]
     },
     game(){
-      return {name: 'call', price: 139.04}
+      return {name: 'call', price: 23}
+    },
+    user(obj: any, args: {name: string,
+      age: number}){
+      console.log(args.name)
+      return {name: 'vinicius', age: 23}
     }
   }
 }
