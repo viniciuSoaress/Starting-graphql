@@ -20,6 +20,7 @@ const typeDefs = gql`
     product: Products,
 
   }
+
 `
 
 const resolvers = {
@@ -36,7 +37,8 @@ const resolvers = {
     users(){
       return db.users
     }
-  }
+  },
+ 
 }
 
 
@@ -46,3 +48,9 @@ const server = new ApolloServer({
 })
 
 server.listen().then(({url}) => console.log(url))
+
+
+
+
+
+
